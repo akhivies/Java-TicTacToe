@@ -1,5 +1,5 @@
 # TicTacToe
 
-A simple game built using Java
+A simple version of TicTacToe created for practice learning Java
 
-## By Rob Godwin
+### Rob Godwin
