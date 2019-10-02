@@ -34,21 +34,23 @@ public class Cell extends JButton {
     
     public void setGameText() {
     	if (!isGameOver()) {
-    		if (!isFull()) {
-    			if (playerTurn == 'x') {
-    				setText("X");
-    				if (!isGameOver()) {
-    					GameFrame.statusLabel.setText("Player O turn to play");
-    					playerTurn = 'o';
-    				} 
-    			} else {
-    				setText("O");
-    				if (!isGameOver()) {
-    					GameFrame.statusLabel.setText("Player X turn to play");
-    					playerTurn = 'x';
-    				} 
-    			}
-    		}
+			if (playerTurn == 'x') {
+				setText("X");
+				if (!isGameOver()) {
+					if (!isFull()) {
+						GameFrame.statusLabel.setText("Player O turn to play");
+						playerTurn = 'o';
+					}
+				} 
+			} else {
+				setText("O");
+				if (!isGameOver()) {
+					if (!isFull()) {
+						GameFrame.statusLabel.setText("Player X turn to play");
+						playerTurn = 'x';
+					}
+				} 
+			}
     	}
     }
 
@@ -60,7 +62,7 @@ public class Cell extends JButton {
             	}
             }
 		}
-		GameFrame.statusLabel.setText("Game Over, board full");
+		GameFrame.statusLabel.setText("Game Over, board full!");
 		return true;
 	}
 	
