@@ -11,6 +11,8 @@ import javax.swing.border.LineBorder;
 public class Cell extends JButton {
 
 	public static char playerTurn = 'x';
+	public static int playerXwins = 0;
+	public static int playerOwins = 0;
 
 	public Cell() {
 		addMouseListener(new MouseAdapter() {
@@ -63,6 +65,9 @@ public class Cell extends JButton {
 						GameFrame.statusLabel.setText("Player O turn to play");
 						playerTurn = 'o';
 					}
+				} else {
+					playerXwins++;
+					GameFrame.scoreBoard.setText("X Wins: " +Cell.playerXwins+ ", O Wins: " +Cell.playerOwins);
 				}
 			} else {
 				setText("O");
@@ -71,6 +76,9 @@ public class Cell extends JButton {
 						GameFrame.statusLabel.setText("Player X turn to play");
 						playerTurn = 'x';
 					}
+				} else {
+					playerOwins++;
+					GameFrame.scoreBoard.setText("X Wins: " +Cell.playerXwins+ ", O Wins: " +Cell.playerOwins);
 				}
 			}
 		}
@@ -95,6 +103,7 @@ public class Cell extends JButton {
 			if (GameGrid.cell[y][0].getText().equals("X") && GameGrid.cell[y][1].getText().equals("X")
 					&& GameGrid.cell[y][2].getText().equals("X")) {
 				GameFrame.statusLabel.setText("Game Over! Player X Wins!");
+				GameFrame.scoreBoard.setText("X Wins: " +Cell.playerXwins+ ", O wins: " +Cell.playerOwins);
 				return true;
 			} else if (GameGrid.cell[y][0].getText().equals("O") && GameGrid.cell[y][1].getText().equals("O")
 					&& GameGrid.cell[y][2].getText().equals("O")) {

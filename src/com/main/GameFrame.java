@@ -11,6 +11,7 @@ public class GameFrame extends JFrame {
 	JFrame frame = new JFrame("TicTacToe Game");
 	JPanel topPanel = new JPanel();
 	static JLabel statusLabel = new JLabel("Player X turn to play");
+	static JLabel scoreBoard = new JLabel("X Wins: " +Cell.playerXwins+ ", O wins: " +Cell.playerOwins);
 	JPanel panel = new JPanel();
 	JPanel bottomPanel = new JPanel();
 
@@ -21,6 +22,7 @@ public class GameFrame extends JFrame {
 		topPanel.add(statusLabel);
 		panel.add(new GameGrid());
 		bottomPanel.add(new ResetButton());
+		bottomPanel.add(scoreBoard);
 		frame.pack();
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		frame.setVisible(true);

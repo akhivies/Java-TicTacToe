@@ -6,8 +6,8 @@ import java.awt.event.MouseEvent;
 
 import javax.swing.JButton;
 
-public class ResetButton extends JButton{
-	
+public class ResetButton extends JButton {
+
 	public ResetButton() {
 		new JButton();
 		addMouseListener(new MouseAdapter() {
@@ -16,8 +16,8 @@ public class ResetButton extends JButton{
 			public void mouseClicked(MouseEvent e) {
 				Cell.playerTurn = 'x';
 				GameFrame.statusLabel.setText("Player X turn to play");
-				for (int y=0;y<3;y++) {
-					for (int x=0;x<3;x++) {
+				for (int y = 0; y < 3; y++) {
+					for (int x = 0; x < 3; x++) {
 						GameGrid.cell[y][x].setText(" ");
 					}
 				}
@@ -25,7 +25,7 @@ public class ResetButton extends JButton{
 		});
 		setText("Reset");
 	}
-	
+
 	@Override
 	public Dimension getPreferredSize() {
 		return new Dimension(110, 40);
