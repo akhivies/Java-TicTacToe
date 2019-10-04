@@ -10,7 +10,7 @@ import javax.swing.border.LineBorder;
 
 public class Cell extends JButton {
 
-	private static char playerTurn = 'x';
+	public static char playerTurn = 'x';
 
 	public Cell() {
 		addMouseListener(new MouseAdapter() {
@@ -20,13 +20,31 @@ public class Cell extends JButton {
 				// On click, verify that space is empty before calling setGameText() 
 				if (getText().equals(" ")) {
 					setGameText();
-				}
+				} 
 			}
 		});
 
 		setBorder(new LineBorder(Color.GRAY));
 		setText(" ");
 	}
+	
+	public Cell(String reset) {
+		addMouseListener(new MouseAdapter() {
+
+			@Override
+			public void mouseClicked(MouseEvent e) {
+				// On click, verify that space is empty before calling setGameText() 
+				if (getText().equals(" ")) {
+					setGameText();
+				} 
+			}
+		});
+
+		setBorder(new LineBorder(Color.GRAY));
+		setText(" ");
+	}
+	
+	
 
 	@Override
 	public Dimension getPreferredSize() {
