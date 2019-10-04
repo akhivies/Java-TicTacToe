@@ -14,7 +14,6 @@ public class GameFrame extends JFrame {
 	JPanel panel = new JPanel();
 
 	public GameFrame() {
-		// frame.setContentPane(this);
 		frame.add(panel, BorderLayout.CENTER);
 		frame.add(topPanel, BorderLayout.NORTH);
 		topPanel.add(statusLabel);

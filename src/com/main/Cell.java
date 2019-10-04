@@ -17,6 +17,7 @@ public class Cell extends JButton {
 
 			@Override
 			public void mouseClicked(MouseEvent e) {
+				// On click, verify that space is empty before calling setGameText() 
 				if (getText().equals(" ")) {
 					setGameText();
 				}
@@ -33,9 +34,12 @@ public class Cell extends JButton {
 	}
 
 	public void setGameText() {
+		// If game is not over continue
 		if (!isGameOver()) {
+			// If player X turn, will add text 'X' to button on click
 			if (playerTurn == 'x') {
 				setText("X");
+				//cCheck to see if game is over or board is full, if not, pass turn to next player
 				if (!isGameOver()) {
 					if (!isFull()) {
 						GameFrame.statusLabel.setText("Player O turn to play");
@@ -53,7 +57,8 @@ public class Cell extends JButton {
 			}
 		}
 	}
-
+	
+	// Checks to see if there are any empty spaces remaining on game board
 	private boolean isFull() {
 		for (int y = 0; y < 3; y++) {
 			for (int x = 0; x < 3; x++) {
@@ -66,6 +71,7 @@ public class Cell extends JButton {
 		return true;
 	}
 
+	// Checks to see if a player has won the game by getting three in a row
 	private boolean isGameOver() {
 		for (int y = 0; y < 3; y++) {
 			if (GameGrid.cell[y][0].getText().equals("X") && GameGrid.cell[y][1].getText().equals("X")
